@@ -1,0 +1,41 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: orderservice
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloud_order?useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  #nacos
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        cluster-name: SH
+#eureka:
+#      client:
+#        service-url:
+#          defaultZone: http://127.0.0.1:10086/eureka
+#      instance: # 在Eureka中显示服务的ip地址
+#        ip-address: 127.0.0.1 # 配置服务器ip地址
+#        prefer-ip-address: true # 更倾向于使用ip,而不是host名
+#        instance-id: ${eureka.instance.ip-address}:${server.port} # 自定义实例的id
+mybatis:
+  type-aliases-package: cn.itcast.user.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    cn.itcast: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+
+#==============================nacos负载均衡策略
+userservice:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
+    eager-load:
+      enabled: true
+      clients: userservice
