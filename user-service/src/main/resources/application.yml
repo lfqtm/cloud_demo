@@ -1,8 +1,9 @@
 server:
   port: 8081
 spring:
-  application:
-    name: userservice
+  #移到bootstrap.yml中
+#  application:
+#    name: userservice
   datasource:
     url: jdbc:mysql://localhost:3306/cloud_user?useSSL=false
     username: root
@@ -11,9 +12,13 @@ spring:
   #nacos
   cloud:
     nacos:
+#      server-addr: localhost:81
       server-addr: localhost:8848
       discovery:
         cluster-name: SH #用nacos将其归属上海集群
+#        namespace: e6ca71b9-2a79-4fb6-aaf7-14e67a51f159
+#        ephemeral: false # 设置为非临时实例
+#        group: group1 #组
 
 #eureka:
 #  client:
@@ -32,3 +37,7 @@ logging:
     cn.itcast: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+
+# 自定义配置
+#pattern:
+#  dataformat: yyyy-MM-dd HH:mm:ss
