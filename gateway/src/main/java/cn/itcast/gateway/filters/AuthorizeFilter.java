@@ -25,7 +25,9 @@ public class AuthorizeFilter implements GlobalFilter {
 		// 2.获取authorization参数   http://127.0.0.1:10010/user/1?authorization=admin
 		String auth = params.getFirst("authorization");
 		// 3.校验
-		if ("admin".equals(auth)) {
+		// 解除校验
+//		if ("admin".equals(auth)) {
+		if (true) {
 			// 放行
 			return chain.filter(exchange);
 		}

@@ -4,14 +4,18 @@ spring:
   application:
     name: orderservice
   datasource:
-    url: jdbc:mysql://localhost:3306/cloud_order?useSSL=false
+#    url: jdbc:mysql://localhost:3306/cloud_order?useSSL=false
+    # 容器化部署，localhost换成docker-compose-yml中配置的 mysql
+    url: jdbc:mysql://mysql:3306/cloud_order?useSSL=false
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
   #nacos
   cloud:
     nacos:
-      server-addr: localhost:8848
+#      server-addr: localhost:8848
+      # 容器化部署方式 改为nacos:8848
+      server-addr: nacos:8848 # nacos地址,从nacos中获取微服务的地址
       discovery:
         cluster-name: SH
 #        namespace: e6ca71b9-2a79-4fb6-aaf7-14e67a51f159 #命名空间id

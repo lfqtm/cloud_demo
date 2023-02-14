@@ -4,6 +4,7 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
+.idea/
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
@@ -113,3 +114,6 @@ buildNumber.properties
 eureka-service/src/test/
 order-service/src/test/
 user-service/src/test/
+feign-api/src/main/resources/
+feign-api/src/test/
+gateway/src/test/
